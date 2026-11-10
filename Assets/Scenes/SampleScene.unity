@@ -292,7 +292,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 352901557}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1017423484}
+        m_TargetAssemblyTypeName: ScoreManager, Assembly-CSharp
+        m_MethodName: DeleteScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &352901557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,6 +564,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 401541272}
+  - component: {fileID: 401541273}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -574,6 +587,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &401541273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401541271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1b711795fe3ac547979a9c7b378ad9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundManager
+  audioMixer: {fileID: 24100000, guid: 4bbdfde5717337d42b4b201eaac20515, type: 2}
+  bgmVolume: 0
+  seVolume: 0
+  bgmSlider: {fileID: 1921081600}
+  seSlider: {fileID: 552331518}
 --- !u!1 &493427451
 GameObject:
   m_ObjectHideFlags: 0
@@ -1502,6 +1532,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1017423483}
   - component: {fileID: 1017423482}
+  - component: {fileID: 1017423484}
   m_Layer: 0
   m_Name: ScoreManager
   m_TagString: Untagged
@@ -1621,6 +1652,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1017423484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017423481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778fb6d8891e78e41b18f4338dfefa61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreManager
+  score: 0
+  scoreText: {fileID: 368296490}
+  audioSource: {fileID: 1017423482}
+  saveSound: {fileID: 8300000, guid: a668e974235f18a428aecfde5747c218, type: 3}
+  deleteSound: {fileID: 8300000, guid: 893ef9ae81a6833478f5e2725715825d, type: 3}
 --- !u!1 &1209334363
 GameObject:
   m_ObjectHideFlags: 0
@@ -2146,7 +2194,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1488039833}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1017423484}
+        m_TargetAssemblyTypeName: ScoreManager, Assembly-CSharp
+        m_MethodName: SaveScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1488039833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2355,13 +2415,23 @@ MonoBehaviour:
   dropTorqueMin: -5
   dropTorqueMax: 5
   lifeTime: 0.5
-  animator: {fileID: 0}
-  audioSource: {fileID: 0}
-  openSound: {fileID: 0}
-  dropSound: {fileID: 0}
-  scoreManager: {fileID: 0}
-  scoreMim: 0
-  scoreMax: 0
+  animator: {fileID: 1857741525}
+  audioSource: {fileID: 1857741524}
+  openSound: {fileID: 8300000, guid: b22ef28f7e2732f498aa00999fdf9bf4, type: 3}
+  dropSound: {fileID: 8300000, guid: 0ad9c0924a628224f89f1d356bc33c47, type: 3}
+  scoreManager: {fileID: 1017423484}
+  scoreMin: 10
+  scoreMax: 100
+--- !u!82 &1857741524 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7663850510285976919, guid: d50524eeb83ca5e4ea7599e4e5423ea4, type: 3}
+  m_PrefabInstance: {fileID: 1250444019252517218}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1857741525 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5125085289614799197, guid: d50524eeb83ca5e4ea7599e4e5423ea4, type: 3}
+  m_PrefabInstance: {fileID: 1250444019252517218}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1893848368
 GameObject:
   m_ObjectHideFlags: 0

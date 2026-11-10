@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TakaraBox : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class TakaraBox : MonoBehaviour
 
     [Header("* * * スコア設定 * * *")]
     public ScoreManager scoreManager;       // スコア管理クラスの参照
-    public int scoreMim = 10;       // スコアの加算値（最小値）
+    public int scoreMin = 10;       // スコアの加算値（最小値）
     public int scoreMax = 100;      // スコアの加算値（最大値）
 
 
@@ -32,7 +33,14 @@ public class TakaraBox : MonoBehaviour
 
     void Update()
     {
-        DropTreasure();     // 宝石をドロップ
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            DropTreasure();         // 宝石をドロップ
+            PlayOpenAnimation();    // 宝箱を開くアニメーション
+            PlaySound(openSound); // 効果音を再生する
+            PlaySound(dropSound); // 効果音を再生する
+            AddScore(Random.Range(scoreMin, scoreMin));
+        }
     }
 
 
@@ -64,5 +72,34 @@ public class TakaraBox : MonoBehaviour
         // ※　指定したオブジェクトを削除するメソッド
         // Destroy( 削除したいオブジェクト, 待ち時間 )
         Destroy(treasure, lifeTime);
+    }
+
+
+    /// <summary>
+    /// 宝箱が開くアニメーションを再生するメソッド
+    /// </summary>
+    public void PlayOpenAnimation()
+    {
+        animator.SetTrigger("OpenTrigger");
+    }
+
+
+    /// <summary>
+    /// 効果音を再生するメソッド
+    /// </summary>
+    /// <param name="se">再生する効果音の参照</param>
+    public void PlaySound( AudioClip se )
+    {
+        audioSource.PlayOneShot( se );
+    }
+
+
+    /// <summary>
+    /// スコアを追加するメソッド
+    /// </summary>
+    /// <param name="add">加算値</param>
+    public void AddScore( int add )
+    {
+        scoreManager.AddScore(add);
     }
 }
