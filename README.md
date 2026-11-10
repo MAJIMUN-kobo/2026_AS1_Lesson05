@@ -1,6 +1,15 @@
 # AS1_Lesson05 宝箱クリッカー
 参考🔗：[【Unity】クリッカーゲームを作る](https://ryukyugame.notion.site/Unity-28bb71fa95ca809b939aff7ab3d9f6f0)
 
+## 2026-10-27 Update.
+- AudioManager.cs
+- ScoreManager.cs
+- セーブ / 削除　ボタンの設定
+- ビルド設定
+
+<img width="640" height="360" alt="as1_lesson05_20261027" src="https://github.com/user-attachments/assets/6467cc92-b5d3-4b1f-9c8c-b30b2fa89efc" />
+
+
 ## 2026-10-20 Update.
 - uGUIのレイアウト
 - AudioMixerの追加/設定
